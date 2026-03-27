@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RESPONSIVE WEB DEVELOPMENT</title>
+    <style>
+      :root {
+        --papel: #f4ecd8;
+        --tinta: #a08751;
+        --detalhe: #8b7a6b;
+        --carimbo: #b19d48;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: #917c43;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        font-family: 'Courier New', Courier, monospace;
+      }
+
+      /* Container que imita uma pasta de arquivo */
+      .arquivo-paginacao {
+        background-color: var(--papel);
+        padding: 40px;
+        border: 2px solid var(--detalhe);
+        box-shadow: 15px 15px 0px rgba(0, 0, 0, 0.5);
+        text-align: center;
+        position: relative;
+      }
+
+      .titulo-secao {
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        color: var(--detalhe);
+        margin-bottom: 20px;
+        letter-spacing: 2px;
+      }
+
+      /* Estilos da lista (Navegação) */
+      .lista-paginas {
+        list-style: none;
+        display: flex;
+        gap: 15px;
+        padding: 0;
+        justify-content: center;
+      }
+
+      /* Combinador de descendente para os links */
+      .lista-paginas li a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        text-decoration: none;
+        color: var(--tinta);
+        border: 1px solid var(--detalhe);
+        font-weight: bold;
+        font-size: 1.2rem;
+        transition: all 0.2s ease-in-out;
+        background: rgba(0, 0, 0, 0.02);
+      }
+
+      /* Combinador de filho direto + hover */
+      .lista-paginas > li > a:hover {
+        background-color: var(--tinta);
+        color: var(--papel);
+        transform: scale(1.1) rotate(-2deg);
+        box-shadow: 5px 5px 0px var(--carimbo);
+      }
+
+      /* Estilo para a página ativa (carimbo) */
+      .lista-paginas li.ativa a {
+        border: 3px double var(--carimbo);
+        color: var(--carimbo);
+        background: rgba(139, 38, 38, 0.05);
+        transform: rotate(5deg);
+      }
+
+      /* Combinador de irmãos adjacentes: 
+           Aumenta sutilmente o próximo item quando o anterior ganha foco */
+      .lista-paginas li:hover + li a {
+        border-style: dashed;
+      }
+
+      /* Combinador de descendente para ícones/setas */
+      .lista-paginas li a span {
+        font-size: 0.8rem;
+      }
+
+      /* Decoração de "Pasta de Arquivo" */
+      .arquivo-paginacao::before {
+        content: 'RESPONSIVE WEB DEVELOPMENT';
+        position: absolute;
+        top: -25px;
+        left: 0;
+        background: var(--detalhe);
+        color: var(--papel);
+        padding: 5px 15px;
+        font-size: 0.7rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="arquivo-paginacao">
+      <h2 class="titulo-secao">Documentos</h2>
+
+      <ul class="lista-paginas">
+        <li>
+          <a href="#"><span>«</span></a>
+        </li>
+        <li><a href="#">1</a></li>
+        <li class="ativa"><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li>
+          <a href="#"><span>»</span></a>
+        </li>
+      </ul>
+
+      <p style="margin-top: 25px; font-size: 0.7rem; color: #8b7a6b">
+        Output de dados limitado ao range 10 á 20.
+      </p>
+    </div>
+  </body>
+</html>
